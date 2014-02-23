@@ -22,16 +22,13 @@ public class PhysicsSim {
     
     static double vx,vy,rx,ry,m;
     
-    static PhysicalObject obj = new DraggyBall(m, new Vector(vx, vy), new Vector(rx,ry), tickTime); //define your object here
-	private static Scanner s;
+    private static Scanner s;
     
     public static void main(String[] args) {
         
         s = new Scanner(System.in);
         
         System.out.println("PhysicsSim, Rev 4.0, written by hatsunearu (www.github.com/hatsunearu)\n");
-        
-        System.out.println("Simulation Object: "+obj.getModelName()+"\n");
         
         System.out.println("Input mass of object");
         m = s.nextDouble();
@@ -54,11 +51,16 @@ public class PhysicsSim {
             samplingInterval = s.nextDouble();
         }
         
+        PhysicalObject obj = new DraggyBall(m, new Vector(vx, vy), new Vector(rx,ry), tickTime); //define your object here
+
+
         System.out.println("\nPhysical Parameters: m = " + m+ " v = <"+vx+", "+vy+">" + " r = <"+rx+", "+ry+">");
         System.out.println("\nRun Parameters: total time = "+timeToRun+" tick interval = "+tickTime+" sampling interval = "+samplingInterval);
+
+        System.out.println("Simulation Object: "+obj.getModelName()+"\n");
         
         System.out.println("Press enter to continue...");
-        
+       
         s.nextLine();
        
         System.out.println("Time\tX\tY");
